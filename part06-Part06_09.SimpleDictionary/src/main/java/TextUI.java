@@ -1,0 +1,58 @@
+
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author owner
+ */
+public class TextUI {
+    private Scanner scanner;
+    private SimpleDictionary dictionary;
+    
+    public TextUI(Scanner scanner, SimpleDictionary dictionary){
+        this.scanner = scanner;
+        this.dictionary = dictionary;
+    }
+    
+    public void start(){
+        while(true){
+            System.out.print("Command: ");
+            String word = this.scanner.nextLine();
+            
+            if(word.equals("end")){
+                System.out.println("Bye bye!");
+                break;
+            }
+            if(word.equals("add")){
+                System.out.print("Word: ");
+                String dictWord = this.scanner.nextLine();
+                System.out.print("Translation: ");
+                String dictTranslation = this.scanner.nextLine();
+                
+                this.dictionary.add(dictWord, dictTranslation);
+                continue;
+            }
+            if(word.equals("search")){
+                System.out.print("To be translated: ");
+                String toTranslate = this.scanner.nextLine();
+                System.out.println(this.dictionary.wordTranslation(toTranslate));
+                continue;
+                
+            }
+            
+            System.out.println("Unknown command");
+        }
+    }
+    
+    public void addLine(String word, String translation){
+        this.dictionary.add(word, translation);
+    }
+    
+
+}
