@@ -7,7 +7,7 @@ public class Program {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         ArrayList<String> jokes = new ArrayList<>();
         System.out.println("What a joke!");
         while (true) {
@@ -39,6 +39,11 @@ public class Program {
         System.out.println(joke);
         }
         }
-        }
+        }*/
+JokeManager manager = new JokeManager();
+Scanner scanner = new Scanner(System.in);
+
+UserInterface ui = new UserInterface(manager, scanner);
+ui.start();
     }
 }
